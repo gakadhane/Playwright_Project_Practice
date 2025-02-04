@@ -1,5 +1,11 @@
 import re
 from playwright.sync_api import Page, expect
+from playwright.sync_api import sync_playwright
+from pytest_playwright.pytest_playwright import browser
+
+with sync_playwright() as playwright:
+    browser = playwright.chromium.launch(headless = False, slow_mo=500)
+    page = browser.new_page()
 
 def test_has_title(page: Page):
     page.goto("https://playwright.dev/")
