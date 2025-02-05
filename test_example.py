@@ -10,6 +10,12 @@ with sync_playwright() as playwright:
 def test_has_title(page: Page):
     page.goto("https://playwright.dev/")
 
+    docs_button = page.get_by_role('link', name="Docs")
+    docs_button.click()
+
+def test_has_title(page: Page):
+    page.goto("https://playwright.dev/")
+
     # Expect a title "to contain" a substring.
     expect(page).to_have_title(re.compile("Playwright"))
 
