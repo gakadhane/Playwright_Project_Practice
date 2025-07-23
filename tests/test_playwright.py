@@ -1,3 +1,5 @@
+
+
 import condition
 from playwright.sync_api import sync_playwright, Playwright
 import pytest
@@ -52,6 +54,7 @@ def test_google_search(playwright_instance):
     page.get_by_role("combobox", name="शोधा").click()
     page.get_by_role("combobox", name="शोधा").fill("playwright")
     page.get_by_role("button", name="व्हॉइसद्वारे शोधा").click()
+    page.get_by_role("button", name = "test")
 
     # Stop tracing and export it into a zip archive.
     context.tracing.stop(path="google_trace.zip")
